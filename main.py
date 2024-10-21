@@ -7,9 +7,8 @@ import pandas as pd
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from docx import Document
-import fitz  # PyMuPDF
+import fitz  
 
-# Download NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -77,11 +76,11 @@ if pasted_resume_text:
 
 if st.button('Analyze Keywords'):
     if job_description and resume_text:
-        # Extract keywords
+        
         jd_keywords = extract_keywords(job_description)
         resume_keywords = extract_keywords(resume_text)
         
-        # Compare keywords
+        
         missing_keywords = keyword_comparison(jd_keywords, resume_keywords)
         
         st.subheader('Job Description Keywords')
@@ -95,7 +94,7 @@ if st.button('Analyze Keywords'):
         st.subheader('Missing Keywords')
         st.write(missing_keywords)
         
-        # AI-driven suggestions (basic implementation)
+
         st.subheader('AI-driven Suggestions')
         suggestions = "Consider adding the following keywords to your resume: " + ', '.join(missing_keywords)
         st.write(suggestions)
